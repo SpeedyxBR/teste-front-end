@@ -238,7 +238,7 @@ $tablet: 1024px;
 }
 
 .product-modal__title {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 28px;
   font-weight: 600;
   color: $text-color;
@@ -251,7 +251,7 @@ $tablet: 1024px;
 }
 
 .product-modal__description {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 16px;
   color: $text-light;
   line-height: 1.5;
@@ -269,7 +269,7 @@ $tablet: 1024px;
 }
 
 .product-modal__current-price {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 32px;
   font-weight: 700;
   color: $primary-color;
@@ -280,13 +280,13 @@ $tablet: 1024px;
 }
 
 .product-modal__installment {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 14px;
   color: $text-light;
 }
 
 .product-modal__free-shipping {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 14px;
   color: $success-color;
   font-weight: 500;
@@ -306,7 +306,7 @@ $tablet: 1024px;
 }
 
 .product-modal__quantity-label {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 16px;
   font-weight: 500;
   color: $text-color;
@@ -349,7 +349,7 @@ $tablet: 1024px;
   height: 44px;
   border: none;
   text-align: center;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 16px;
   font-weight: 500;
   color: $text-color;
@@ -369,7 +369,7 @@ $tablet: 1024px;
     margin: 0;
   }
 
-  &[type=number] {
+  &[type="number"] {
     -moz-appearance: textfield;
   }
 }
@@ -390,7 +390,7 @@ $tablet: 1024px;
   background: $primary-color;
   color: $white;
   border-radius: 8px;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 16px;
   font-weight: 600;
   @include transition();
@@ -398,7 +398,7 @@ $tablet: 1024px;
   justify-content: center;
 
   &:hover {
-    background: darken($primary-color, 10%);
+    background: color.adjust($primary-color, $lightness: -10%);
     transform: translateY(-2px);
     box-shadow: $shadow-medium;
   }
@@ -450,7 +450,7 @@ $tablet: 1024px;
 }
 
 .product-modal__features-title {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 600;
   color: $text-color;
@@ -466,7 +466,7 @@ $tablet: 1024px;
   gap: 8px;
 
   li {
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
     font-size: 14px;
     color: $text-light;
     display: flex;
@@ -474,7 +474,7 @@ $tablet: 1024px;
     gap: 8px;
 
     &::before {
-      content: '✓';
+      content: "✓";
       color: $success-color;
       font-weight: bold;
     }
