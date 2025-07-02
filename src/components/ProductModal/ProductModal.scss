@@ -398,7 +398,7 @@ $tablet: 1024px;
   justify-content: center;
 
   &:hover {
-    background: color.adjust($primary-color, $lightness: -10%);
+    background: darken($primary-color, 10%);
     transform: translateY(-2px);
     box-shadow: $shadow-medium;
   }

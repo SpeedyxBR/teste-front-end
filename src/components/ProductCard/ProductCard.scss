@@ -132,7 +132,7 @@ $shadow-medium: 0 4px 16px rgba(0, 0, 0, 0.15);
   margin-top: 8px;
 
   &:hover {
-    background: color.adjust($primary-color, $lightness: -10%);
+    background: darken($primary-color, 10%);
     transform: translateY(-1px);
   }
 
