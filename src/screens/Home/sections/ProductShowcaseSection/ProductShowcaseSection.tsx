@@ -73,15 +73,15 @@ export const ProductShowcaseSection = (): JSX.Element => {
   return (
     <>
       <section className="w-full py-8 relative" aria-label="Produtos em destaque">
-        <div className="w-full max-w-[1280px] mx-auto px-4">
+        <div className="w-full max-w-[1280px] mx-auto px-2 sm:px-4">
           {/* Section Header */}
-          <header className="flex flex-col items-center mb-4">
+          <header className="flex flex-col items-center mb-4 w-full">
             <div className="flex items-center justify-center w-full mb-2">
-              <div className="w-[360px] h-px bg-gray-300 hidden md:block" />
-              <h2 className="mx-8 [font-family:'Poppins',Helvetica] font-bold text-[#3341b5] text-3xl">
+              <div className="h-px bg-gray-300 hidden md:block flex-1" />
+              <h2 className="mx-4 sm:mx-8 [font-family:'Poppins',Helvetica] font-bold text-[#3341b5] text-2xl sm:text-3xl text-center">
                 Produtos relacionados
               </h2>
-              <div className="w-[360px] h-px bg-gray-300 hidden md:block" />
+              <div className="h-px bg-gray-300 hidden md:block flex-1" />
             </div>
             <button className="font-bold text-preto text-[15px] text-center [font-family:'Poppins',Helvetica] hover:text-[#3341b5] transition-colors">
               Ver todos
@@ -90,18 +90,19 @@ export const ProductShowcaseSection = (): JSX.Element => {
 
           {/* Category Tabs */}
           <Tabs defaultValue="celular" className="w-full mb-6">
-            <TabsList className="w-full h-10 p-0 bg-transparent grid grid-cols-6 gap-0">
+            <TabsList className="w-full h-10 p-0 bg-transparent grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-0">
               {categories.map((category) => (
                 <TabsTrigger
+                  asChild
                   key={category.id}
                   value={category.id}
                   className={`h-10 rounded-none border border-[#bdbdbd] ${
                     category.active
                       ? "[font-family:'Poppins',Helvetica] font-bold text-[#3341b5] bg-blue-50"
                       : "[font-family:'Poppins',Helvetica] font-normal text-[#3b3b3b] hover:bg-gray-50"
-                  } text-base transition-all`}
+                  } text-sm sm:text-base transition-all`}
                 >
-                  {category.label}
+                  <button type="button">{category.label}</button>
                 </TabsTrigger>
               ))}
             </TabsList>
@@ -110,7 +111,7 @@ export const ProductShowcaseSection = (): JSX.Element => {
           {/* Product Cards Container */}
           <div className="relative">
             {/* Navigation Buttons */}
-            <div className="flex justify-between absolute top-1/2 -translate-y-1/2 w-full z-10 px-2 pointer-events-none">
+            <div className="flex justify-between absolute top-1/2 -translate-y-1/2 w-full z-10 px-2 pointer-events-none hidden sm:flex">
               <button 
                 className="w-8 h-8 bg-white rounded-2xl shadow-[0px_4px_4px_#00000040] flex items-center justify-center pointer-events-auto hover:scale-110 transition-transform"
                 aria-label="Produto anterior"
@@ -128,7 +129,7 @@ export const ProductShowcaseSection = (): JSX.Element => {
             </div>
 
             {/* Product Cards */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[18px] justify-items-center">
+            <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-[18px] justify-items-center">
               {products.slice(0, 4).map((product, index) => (
                 <ProductCard
                   key={`${product.productName}-${index}`}
