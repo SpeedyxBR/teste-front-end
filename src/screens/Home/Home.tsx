@@ -129,15 +129,15 @@ export const Home = (): JSX.Element => {
         {/* Hero Section */}
         <section className="relative w-full">
           <MainHeaderSection />
-          
+
           {/* Spacer for fixed header */}
           <div className="h-[100px] md:h-[124px] lg:h-[152px]"></div>
-          
+
           <div className="relative w-full">
             <img
-              className="w-full h-[300px] md:h-[390px] object-cover"
+              className="w-full h-[380px] md:h-[420px] object-cover"
               alt="Banner promocional Black Friday"
-              src="https://images.pexels.com/photos/5632402/pexels-photo-5632402.jpeg?auto=compress&cs=tinysrgb&w=1440&h=390&fit=crop"
+              src="Rectangle 250.png"
             />
 
             <div className="absolute w-full h-full top-0 left-0 bg-[linear-gradient(180deg,rgba(0,0,0,0)_0%,rgba(0,0,0,0.7)_85%)]" />
@@ -146,7 +146,7 @@ export const Home = (): JSX.Element => {
               Venha conhecer nossas promoções
             </div>
 
-            <div className="absolute top-[140px] md:top-[220px] lg:top-[280px] left-4 md:left-[78px] font-['Poppins',Helvetica] font-normal text-lg md:text-2xl lg:text-[32px] tracking-[0] leading-normal px-4">
+            <div className="absolute top-[150px] md:top-[260px] lg:top-[280px] left-4 md:left-[78px] font-['Poppins',Helvetica] font-normal text-lg md:text-2xl lg:text-[32px] tracking-[0] leading-normal px-4 mt-2">
               <span className="font-bold text-[#f7ca11]">50% Off </span>
               <span className="text-white">nos produtos </span>
             </div>
@@ -183,27 +183,40 @@ export const Home = (): JSX.Element => {
             Navegue por marcas
           </h2>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-[42px] justify-items-center">
-            {brandLogos.map((brand, index) => (
-              <Card
-                key={`brand-${index}`}
-                className="w-[150px] h-[150px] md:w-[180px] md:h-[180px] lg:w-[211px] lg:h-[211px] bg-white rounded-[75px] md:rounded-[90px] lg:rounded-[105.5px] shadow-[0px_7px_20px_#00000021] flex items-center justify-center hover:shadow-[0px_10px_30px_#00000030] transition-shadow cursor-pointer"
-              >
-                <div className="relative w-[80px] md:w-[100px] lg:w-[117px] h-[24px] md:h-[30px] lg:h-[34.76px]">
-                  <div className="h-[24px] md:h-[30px] lg:h-[35px]">
-                    <div className="relative w-[80px] md:w-[100px] lg:w-[117px] h-[24px] md:h-[30px] lg:h-[35px]">
-                      <div className="bg-[#f7ca11] rounded-full w-6 h-6 md:w-7 md:h-7 lg:w-8 lg:h-8 flex items-center justify-center">
-                        <span className="text-[#3019b2] font-bold text-xs md:text-sm lg:text-base">e</span>
+          <div className="w-full overflow-x-auto scrollbar-hide">
+            <div className="flex gap-4 md:gap-[42px] px-1 md:px-0 min-w-[600px] md:min-w-0">
+              {brandLogos.map((brand, index) => (
+                <Card
+                  key={`brand-${index}`}
+                  className="flex-shrink-0 w-[150px] h-[150px] md:w-[180px] md:h-[180px] lg:w-[211px] lg:h-[211px] bg-white rounded-[75px] md:rounded-[90px] lg:rounded-[105.5px] shadow-[0px_7px_20px_#00000021] flex items-center justify-center hover:shadow-[0px_10px_30px_#00000030] transition-shadow cursor-pointer"
+                >
+                  <div className="relative w-[80px] md:w-[100px] lg:w-[117px] h-[24px] md:h-[30px] lg:h-[34.76px]">
+                    <div className="h-[24px] md:h-[30px] lg:h-[35px]">
+                      <div className="relative w-[80px] md:w-[100px] lg:w-[117px] h-[24px] md:h-[30px] lg:h-[35px]">
+                        <div className="bg-[#f7ca11] rounded-full w-6 h-6 md:w-7 md:h-7 lg:w-8 lg:h-8 flex items-center justify-center">
+                          <span className="text-[#3019b2] font-bold text-xs md:text-sm lg:text-base">
+                            e
+                          </span>
+                        </div>
+                        <span className="absolute left-7 md:left-8 lg:left-10 top-1/2 -translate-y-1/2 font-bold text-[#3019b2] text-xs md:text-sm lg:text-base">
+                          converse
+                        </span>
                       </div>
-                      <span className="absolute left-7 md:left-8 lg:left-10 top-1/2 -translate-y-1/2 font-bold text-[#3019b2] text-xs md:text-sm lg:text-base">
-                        converse
-                      </span>
                     </div>
                   </div>
-                </div>
-              </Card>
-            ))}
+                </Card>
+              ))}
+            </div>
           </div>
+          <style jsx>{`
+            .scrollbar-hide {
+              -ms-overflow-style: none;
+              scrollbar-width: none;
+            }
+            .scrollbar-hide::-webkit-scrollbar {
+              display: none;
+            }
+          `}</style>
         </section>
 
         <BrandNavigationSection />
