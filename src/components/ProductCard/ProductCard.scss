@@ -155,7 +155,8 @@ $shadow-medium: 0 4px 16px rgba(0, 0, 0, 0.15);
   font-size: 14px;
   font-weight: 700;
   cursor: pointer;
-  @include transition(transform, 0.2s, ease, background 0.3s);
+  @include transition(transform, 0.2s, ease);
+  @include transition(background, 0.3s, ease);
   margin-top: 8px;
 
   &:hover {
