@@ -10,7 +10,9 @@ export const ProductShowcaseSection = (): JSX.Element => {
   const { products, loading, error } = useProducts();
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [cartItems, setCartItems] = useState<Array<{ product: Product; quantity: number }>>([]);
+  const [cartItems, setCartItems] = useState<
+    Array<{ product: Product; quantity: number }>
+  >([]);
 
   // Category tabs data
   const categories = [
@@ -33,10 +35,12 @@ export const ProductShowcaseSection = (): JSX.Element => {
   };
 
   const handleAddToCart = (product: Product, quantity: number) => {
-    setCartItems(prev => {
-      const existingItem = prev.find(item => item.product.productName === product.productName);
+    setCartItems((prev) => {
+      const existingItem = prev.find(
+        (item) => item.product.productName === product.productName
+      );
       if (existingItem) {
-        return prev.map(item =>
+        return prev.map((item) =>
           item.product.productName === product.productName
             ? { ...item, quantity: item.quantity + quantity }
             : item
@@ -48,7 +52,10 @@ export const ProductShowcaseSection = (): JSX.Element => {
 
   if (loading) {
     return (
-      <section className="w-full py-8 relative" aria-label="Produtos em destaque">
+      <section
+        className="w-full py-8 relative"
+        aria-label="Produtos em destaque"
+      >
         <div className="w-full max-w-[1280px] mx-auto">
           <div className="flex justify-center items-center h-64">
             <div className="text-lg text-gray-500">Carregando produtos...</div>
@@ -60,10 +67,15 @@ export const ProductShowcaseSection = (): JSX.Element => {
 
   if (error) {
     return (
-      <section className="w-full py-8 relative" aria-label="Produtos em destaque">
+      <section
+        className="w-full py-8 relative"
+        aria-label="Produtos em destaque"
+      >
         <div className="w-full max-w-[1280px] mx-auto">
           <div className="flex justify-center items-center h-64">
-            <div className="text-lg text-red-500">Erro ao carregar produtos: {error}</div>
+            <div className="text-lg text-red-500">
+              Erro ao carregar produtos: {error}
+            </div>
           </div>
         </div>
       </section>
@@ -72,7 +84,10 @@ export const ProductShowcaseSection = (): JSX.Element => {
 
   return (
     <>
-      <section className="w-full py-8 relative" aria-label="Produtos em destaque">
+      <section
+        className="w-full py-8 relative"
+        aria-label="Produtos em destaque"
+      >
         <div className="w-full max-w-[1280px] mx-auto px-2 sm:px-4">
           {/* Section Header */}
           <header className="flex flex-col items-center mb-4 w-full">
@@ -89,37 +104,39 @@ export const ProductShowcaseSection = (): JSX.Element => {
           </header>
 
           {/* Category Tabs */}
-          <Tabs defaultValue="celular" className="w-full mb-6">
-            <TabsList className="w-full h-10 p-0 bg-transparent grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-0">
-              {categories.map((category) => (
-                <TabsTrigger
-                  asChild
-                  key={category.id}
-                  value={category.id}
-                  className={`h-10 rounded-none border border-[#bdbdbd] ${
-                    category.active
-                      ? "[font-family:'Poppins',Helvetica] font-bold text-[#3341b5] bg-blue-50"
-                      : "[font-family:'Poppins',Helvetica] font-normal text-[#3b3b3b] hover:bg-gray-50"
-                  } text-sm sm:text-base transition-all`}
-                >
-                  <button type="button">{category.label}</button>
-                </TabsTrigger>
-              ))}
-            </TabsList>
-          </Tabs>
+          <div className="relative z-20">
+            <Tabs defaultValue="celular" className="w-full mb-6">
+              <TabsList className="w-full h-10 p-0 bg-transparent grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-0">
+                {categories.map((category) => (
+                  <TabsTrigger
+                    asChild
+                    key={category.id}
+                    value={category.id}
+                    className={`h-10 rounded-none border border-[#bdbdbd] ${
+                      category.active
+                        ? "[font-family:'Poppins',Helvetica] font-bold text-[#3341b5] bg-blue-50"
+                        : "[font-family:'Poppins',Helvetica] font-normal text-[#3b3b3b] hover:bg-gray-50"
+                    } text-sm sm:text-base transition-all`}
+                  >
+                    <button type="button">{category.label}</button>
+                  </TabsTrigger>
+                ))}
+              </TabsList>
+            </Tabs>
+          </div>
 
           {/* Product Cards Container */}
-          <div className="relative">
+          <div className="relative z-10">
             {/* Navigation Buttons */}
             <div className="flex justify-between absolute top-1/2 -translate-y-1/2 w-full z-10 px-2 pointer-events-none hidden sm:flex">
-              <button 
+              <button
                 className="w-8 h-8 bg-white rounded-2xl shadow-[0px_4px_4px_#00000040] flex items-center justify-center pointer-events-auto hover:scale-110 transition-transform"
                 aria-label="Produto anterior"
                 type="button"
               >
                 <ChevronLeft size={16} className="text-gray-600" />
               </button>
-              <button 
+              <button
                 className="w-8 h-8 bg-white rounded-2xl shadow-[0px_4px_4px_#00000040] flex items-center justify-center pointer-events-auto hover:scale-110 transition-transform"
                 aria-label="Próximo produto"
                 type="button"
@@ -129,7 +146,7 @@ export const ProductShowcaseSection = (): JSX.Element => {
             </div>
 
             {/* Product Cards */}
-            <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-[18px] justify-items-center">
+            <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-[18px] justify-items-center">
               {products.slice(0, 4).map((product, index) => (
                 <ProductCard
                   key={`${product.productName}-${index}`}
