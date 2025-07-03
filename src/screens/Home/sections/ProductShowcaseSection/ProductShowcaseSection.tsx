@@ -126,7 +126,7 @@ export const ProductShowcaseSection = (): JSX.Element => {
           </div>
 
           {/* Product Cards Container */}
-feat(header): replace code-based econverse logo with econverse.png image in navbar          <div className="relative z-10 mt-20">
+          <div className="relative z-10 mt-20">
             {/* Navigation Buttons */}
             <div className="flex justify-between absolute top-1/2 -translate-y-1/2 w-full z-10 px-2 pointer-events-none hidden sm:flex">
               <button

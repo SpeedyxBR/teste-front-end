@@ -75,12 +75,10 @@ $tablet: 1024px;
   @media (max-width: 600px) {
     max-width: 100vw;
     min-width: 0;
-    min-height: unset;
+    min-height: 100vh;
     border-radius: 0;
     box-shadow: none;
     padding: 0;
-    height: auto;
-    max-height: 95vh;
   }
 }
 
@@ -140,10 +138,8 @@ $tablet: 1024px;
   @media (max-width: 600px) {
     display: flex;
     flex-direction: column;
-    min-height: unset;
+    min-height: auto;
     padding: 0;
-    height: auto;
-    max-height: 95vh;
   }
 }
 
@@ -240,7 +236,7 @@ $tablet: 1024px;
     padding: 20px;
   }
   @media (max-width: 600px) {
-    padding: 12px 8px 8px 8px;
+    padding: 12px 8px 24px 8px;
     max-height: none;
   }
 }
