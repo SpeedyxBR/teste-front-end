@@ -6,37 +6,37 @@ export const CategoryPurchaseSection = (): JSX.Element => {
   const categories = [
     {
       name: "Tecnologia",
-      image: "https://images.pexels.com/photos/356056/pexels-photo-356056.jpeg?auto=compress&cs=tinysrgb&w=120&h=120&fit=crop",
+      image: "/tecnologia.png",
       isActive: true,
     },
     {
       name: "Supermercado",
-      image: "https://images.pexels.com/photos/264636/pexels-photo-264636.jpeg?auto=compress&cs=tinysrgb&w=120&h=120&fit=crop",
+      image: "/supermercados 1.png",
       isActive: false,
     },
     {
       name: "Bebidas",
-      image: "https://images.pexels.com/photos/544961/pexels-photo-544961.jpeg?auto=compress&cs=tinysrgb&w=120&h=120&fit=crop",
+      image: "whiskey.png",
       isActive: false,
     },
     {
       name: "Ferramentas",
-      image: "https://images.pexels.com/photos/162553/keys-workshop-mechanic-tools-162553.jpeg?auto=compress&cs=tinysrgb&w=120&h=120&fit=crop",
+      image: "/ferramentas 1.png",
       isActive: false,
     },
     {
       name: "Saúde",
-      image: "https://images.pexels.com/photos/40568/medical-appointment-doctor-healthcare-40568.jpeg?auto=compress&cs=tinysrgb&w=120&h=120&fit=crop",
+      image: "cuidados-de-saude 1.png",
       isActive: false,
     },
     {
       name: "Esportes e Fitness",
-      image: "https://images.pexels.com/photos/416778/pexels-photo-416778.jpeg?auto=compress&cs=tinysrgb&w=120&h=120&fit=crop",
+      image: "corrida 1.png",
       isActive: false,
     },
     {
       name: "Moda",
-      image: "https://images.pexels.com/photos/996329/pexels-photo-996329.jpeg?auto=compress&cs=tinysrgb&w=120&h=120&fit=crop",
+      image: "moda 1.png",
       isActive: false,
     },
   ];

@@ -27,9 +27,9 @@ export const NewsletterSubscriptionSection = (): JSX.Element => {
 
   // Social media icons
   const socialIcons = [
-    { name: "Instagram", src: "/instagram.svg" },
-    { name: "Facebook", src: "/facebook.svg" },
-    { name: "Linkedin", src: "/linkedin.svg" },
+    { name: "Instagram", src: "/instagram.png", link: "https://instagram.com" },
+    { name: "Facebook", src: "/facebook.png", link: "https://facebook.com" },
+    { name: "Linkedin", src: "/linkedin.png", link: "https://linkedin.com" },
   ];
 
   return (
@@ -88,103 +88,12 @@ export const NewsletterSubscriptionSection = (): JSX.Element => {
           <div className="flex flex-col items-start gap-[27px]">
             {/* Logo */}
             <div className="flex flex-col items-start gap-[18px]">
-              <div className="relative w-[164px] h-12">
-                <div className="relative h-12">
-                  <img
-                    className="absolute w-[49px] h-12 top-0 left-0"
-                    alt="Caminho"
-                    src="/caminho-30.svg"
-                  />
-                  <img
-                    className="absolute w-[17px] h-[17px] top-4 left-2"
-                    alt="Caminho"
-                    src="/caminho-39-1.svg"
-                  />
-                  <img
-                    className="absolute w-4 h-[17px] top-4 left-[27px]"
-                    alt="Caminho"
-                    src="/caminho-32.svg"
-                  />
-                  <img
-                    className="absolute w-[18px] h-[17px] top-4 left-[45px]"
-                    alt="Caminho"
-                    src="/caminho-33.svg"
-                  />
-                  <img
-                    className="absolute w-4 h-[17px] top-4 left-[65px]"
-                    alt="Caminho"
-                    src="/caminho-34.svg"
-                  />
-                  <img
-                    className="absolute w-[18px] h-4 top-[17px] left-[83px]"
-                    alt="Caminho"
-                    src="/caminho-35.svg"
-                  />
-                  <img
-                    className="absolute w-[17px] h-[17px] top-4 left-[101px]"
-                    alt="Caminho"
-                    src="/caminho-36-2.svg"
-                  />
-                  <img
-                    className="absolute w-[9px] h-[17px] top-[17px] left-[121px]"
-                    alt="Caminho"
-                    src="/caminho-37-11.svg"
-                  />
-                  <img
-                    className="absolute w-3.5 h-[17px] top-4 left-[131px]"
-                    alt="Caminho"
-                    src="/caminho-38.svg"
-                  />
-                  <img
-                    className="absolute w-[17px] h-[17px] top-4 left-[147px]"
-                    alt="Caminho"
-                    src="/caminho-39-1.svg"
-                  />
-                  <div className="absolute w-[164px] h-12 top-0 left-0">
-                    <div className="absolute w-[62px] h-12 top-0 left-0">
-                      <img
-                        className="absolute w-[49px] h-12 top-0 left-0"
-                        alt="Group"
-                        src="/group-1.png"
-                      />
-                      <img
-                        className="absolute w-[18px] h-[17px] top-4 left-[45px]"
-                        alt="Caminho"
-                        src="/caminho-33.svg"
-                      />
-                    </div>
-                    <img
-                      className="absolute w-4 h-[17px] top-4 left-[65px]"
-                      alt="Caminho"
-                      src="/caminho-34.svg"
-                    />
-                    <img
-                      className="absolute w-[18px] h-4 top-[17px] left-[83px]"
-                      alt="Caminho"
-                      src="/caminho-35.svg"
-                    />
-                    <img
-                      className="absolute w-[17px] h-[17px] top-4 left-[101px]"
-                      alt="Caminho"
-                      src="/caminho-36-2.svg"
-                    />
-                    <img
-                      className="absolute w-[9px] h-[17px] top-[17px] left-[121px]"
-                      alt="Caminho"
-                      src="/caminho-37-11.svg"
-                    />
-                    <img
-                      className="absolute w-3.5 h-[17px] top-4 left-[131px]"
-                      alt="Caminho"
-                      src="/caminho-38.svg"
-                    />
-                    <img
-                      className="absolute w-[17px] h-[17px] top-4 left-[147px]"
-                      alt="Caminho"
-                      src="/caminho-39-1.svg"
-                    />
-                  </div>
-                </div>
+              <div className="w-[164px] h-12 flex items-center justify-center">
+                <img
+                  className="w-[164px] h-12 object-contain"
+                  alt="Econverse"
+                  src="/econverse.png"
+                />
               </div>
               <p className="text-sm font-['Poppins',Helvetica] font-light text-preto max-w-[354px]">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -194,12 +103,20 @@ export const NewsletterSubscriptionSection = (): JSX.Element => {
             {/* Social Media */}
             <div className="flex items-center gap-[26px]">
               {socialIcons.map((icon, index) => (
-                <img
+                <a
                   key={index}
-                  className="w-6 h-6"
-                  alt={icon.name}
-                  src={icon.src}
-                />
+                  href={icon.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={icon.name}
+                >
+                  <button
+                    className="w-8 h-8 flex items-center justify-center rounded-full bg-white shadow hover:bg-gray-100 transition"
+                    type="button"
+                  >
+                    <img className="w-6 h-6" alt={icon.name} src={icon.src} />
+                  </button>
+                </a>
               ))}
             </div>
           </div>
@@ -221,7 +138,11 @@ export const NewsletterSubscriptionSection = (): JSX.Element => {
                   {column.links.map((link, linkIndex) => (
                     <li
                       key={linkIndex}
-                      className={`font-${column.title === "Termos" ? "['Poppins']" : "['Work_Sans']"},Helvetica font-normal text-[#222222b5] text-sm leading-4 cursor-pointer`}
+                      className={`font-${
+                        column.title === "Termos"
+                          ? "['Poppins']"
+                          : "['Work_Sans']"
+                      },Helvetica font-normal text-[#222222b5] text-sm leading-4 cursor-pointer`}
                     >
                       {link}
                     </li>
