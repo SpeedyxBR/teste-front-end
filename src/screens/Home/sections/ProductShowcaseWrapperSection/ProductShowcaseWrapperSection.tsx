@@ -70,18 +70,18 @@ export const ProductShowcaseWrapperSection = (): JSX.Element => {
   return (
     <>
       <section
-        className="w-full max-w-[1364px] mx-auto py-8 px-2 sm:px-4"
+        className="w-full max-w-[1364px] mx-auto py-8 px-4"
         aria-label="Mais produtos"
       >
         <header className="flex flex-col items-center mb-6 w-full">
-          <div className="flex flex-col xs:flex-row items-center w-full max-w-full sm:max-w-[1140px] justify-center mb-4 gap-2 sm:gap-0">
+          <div className="flex flex-col sm:flex-row items-center w-full max-w-full sm:max-w-[1140px] justify-center mb-4 gap-2 sm:gap-0">
             <div className="hidden sm:block flex-1 h-px bg-gray-300 min-w-[40px]" />
             <h2 className="mx-0 sm:mx-8 [font-family:'Poppins',Helvetica] font-bold text-azul text-2xl sm:text-3xl md:text-4xl text-center w-full sm:w-auto">
               Produtos relacionados
             </h2>
             <div className="hidden sm:block flex-1 h-px bg-gray-300 min-w-[40px]" />
           </div>
-          <button className="font-bold text-preto text-[15px] text-center [font-family:'Poppins',Helvetica] hover:text-azul transition-colors mt-2 sm:mt-0">
+          <button className="font-bold text-preto text-[15px] text-center [font-family:'Poppins',Helvetica] hover:text-azul transition-colors w-full sm:w-auto mt-2 sm:mt-0">
             Ver todos
           </button>
         </header>

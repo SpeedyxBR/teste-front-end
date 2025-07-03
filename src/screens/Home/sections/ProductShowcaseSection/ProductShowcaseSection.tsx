@@ -138,82 +138,14 @@ export const ProductShowcaseSection = (): JSX.Element => {
 
           {/* Product Cards: Carrossel apenas no mobile, grid no desktop */}
           <div className="relative z-10">
-            {/* Carrossel mobile */}
-            <div className="block md:hidden">
-              <Carousel
-                className="relative w-full max-w-[1600px] mx-auto"
-                setApi={(api) => (carouselApiRef.current = api)}
-              >
-                {/* Custom Navigation Buttons - escondidas no mobile */}
-                <button
-                  className="w-8 h-8 bg-white rounded-2xl shadow-[0px_4px_4px_#00000040] flex items-center justify-center pointer-events-auto hover:scale-110 transition-transform absolute left-0 top-1/2 -translate-y-1/2 z-20 hidden"
-                  aria-label="Produto anterior"
-                  type="button"
-                  style={{ marginLeft: "-24px" }}
-                  onClick={() =>
-                    carouselApiRef.current &&
-                    carouselApiRef.current.scrollPrev()
-                  }
-                >
-                  <ChevronLeft size={16} className="text-gray-600" />
-                </button>
-                <button
-                  className="w-8 h-8 bg-white rounded-2xl shadow-[0px_4px_4px_#00000040] flex items-center justify-center pointer-events-auto hover:scale-110 transition-transform absolute right-0 top-1/2 -translate-y-1/2 z-20 hidden"
-                  aria-label="Próximo produto"
-                  type="button"
-                  style={{ marginRight: "-24px" }}
-                  onClick={() =>
-                    carouselApiRef.current &&
-                    carouselApiRef.current.scrollNext()
-                  }
-                >
-                  <ChevronRight size={16} className="text-gray-600" />
-                </button>
-                <CarouselContent>
-                  {products.slice(0, 4).map((product, index) => (
-                    <CarouselItem
-                      key={`${product.productName}-${index}`}
-                      className="flex justify-center px-8"
-                    >
-                      <ProductCard
-                        product={product}
-                        onClick={handleProductClick}
-                      />
-                    </CarouselItem>
-                  ))}
-                </CarouselContent>
-              </Carousel>
-            </div>
-            {/* Grid desktop */}
-            <div className="relative hidden md:block">
-              {/* Setas simbólicas apenas para visual, sem ação */}
-              <div className="flex justify-between absolute top-1/2 -translate-y-1/2 w-full z-10 pointer-events-none">
-                <button
-                  className="w-8 h-8 bg-white rounded-2xl shadow-[0px_4px_4px_#00000040] flex items-center justify-center pointer-events-none opacity-60"
-                  aria-label="Produto anterior"
-                  type="button"
-                  tabIndex={-1}
-                >
-                  <ChevronLeft size={16} className="text-gray-600" />
-                </button>
-                <button
-                  className="w-8 h-8 bg-white rounded-2xl shadow-[0px_4px_4px_#00000040] flex items-center justify-center pointer-events-none opacity-60"
-                  aria-label="Próximo produto"
-                  type="button"
-                  tabIndex={-1}
-                >
-                  <ChevronRight size={16} className="text-gray-600" />
-                </button>
-              </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 justify-items-center max-w-[1600px] mx-auto">
-                {products.slice(0, 4).map((product, index) => (
-                  <ProductCard
-                    key={`${product.productName}-${index}`}
-                    product={product}
-                    onClick={handleProductClick}
-                  />
-                ))}
-              </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 justify-items-center max-w-[1600px] mx-auto">
+              {products.slice(0, 4).map((product, index) => (
+                <ProductCard
+                  key={`${product.productName}-${index}`}
+                  product={product}
+                  onClick={handleProductClick}
+                />
+              ))}
             </div>
           </div>
         </div>
