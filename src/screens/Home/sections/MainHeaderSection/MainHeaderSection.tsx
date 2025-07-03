@@ -100,7 +100,7 @@ export const MainHeaderSection = (): JSX.Element => {
               src="/econverse.png"
               alt="Econverse logo"
               className="w-[120px] h-auto object-contain"
-              style={{ maxHeight: '41px' }}
+              style={{ maxHeight: "41px" }}
             />
           </div>
 
@@ -116,33 +116,48 @@ export const MainHeaderSection = (): JSX.Element => {
           {/* Utility icons */}
           <div className="flex items-center gap-3 md:gap-4">
             {/* Search icon for mobile/tablet */}
-            <button className="lg:hidden hover:bg-gray-100 p-2 rounded-md transition-colors" aria-label="Buscar">
+            <button
+              className="lg:hidden hover:bg-gray-100 p-2 rounded-md transition-colors"
+              aria-label="Buscar"
+            >
               <SearchIcon className="w-5 h-5 md:w-6 md:h-6 text-gray-600" />
             </button>
-            
+
             {/* Box/Package icon */}
-            <button className="hidden md:flex hover:bg-gray-100 p-2 rounded-md transition-colors" aria-label="Pedidos">
+            <button
+              className="hidden md:flex hover:bg-gray-100 p-2 rounded-md transition-colors"
+              aria-label="Pedidos"
+            >
               <div className="w-5 h-5 md:w-6 md:h-6 border-2 border-gray-600 rounded-sm relative">
                 <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-2 h-1 bg-gray-600 rounded-sm"></div>
               </div>
             </button>
 
             {/* Heart icon */}
-            <button className="hidden md:flex hover:bg-gray-100 p-2 rounded-md transition-colors" aria-label="Favoritos">
+            <button
+              className="hidden md:flex hover:bg-gray-100 p-2 rounded-md transition-colors"
+              aria-label="Favoritos"
+            >
               <HeartIcon className="w-5 h-5 md:w-6 md:h-6 text-gray-600" />
             </button>
 
             {/* User icon */}
-            <button className="hidden md:flex hover:bg-gray-100 p-2 rounded-md transition-colors" aria-label="Conta">
+            <button
+              className="hidden md:flex hover:bg-gray-100 p-2 rounded-md transition-colors"
+              aria-label="Conta"
+            >
               <UserIcon className="w-5 h-5 md:w-6 md:h-6 text-gray-600" />
             </button>
 
             {/* Shopping cart with counter */}
-            <button className="relative hover:bg-gray-100 p-2 rounded-md transition-colors" aria-label="Carrinho de compras">
+            <button
+              className="relative hover:bg-gray-100 p-2 rounded-md transition-colors"
+              aria-label="Carrinho de compras"
+            >
               <ShoppingCartIcon className="w-5 h-5 md:w-6 md:h-6 text-gray-600" />
               {cartItemsCount > 0 && (
                 <span className="absolute -top-1 -right-1 bg-[#f7ca11] text-[#3019b2] text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center min-w-[20px] text-[10px]">
-                  {cartItemsCount > 99 ? '99+' : cartItemsCount}
+                  {cartItemsCount > 99 ? "99+" : cartItemsCount}
                 </span>
               )}
             </button>
@@ -188,11 +203,18 @@ export const MainHeaderSection = (): JSX.Element => {
 
       {/* Mobile Menu Overlay */}
       {isMobileMenuOpen && (
-        <div className="lg:hidden fixed inset-0 bg-black bg-opacity-50 z-50" onClick={toggleMobileMenu}>
-          <div 
-            className="bg-white w-80 h-full shadow-lg overflow-y-auto transform transition-transform duration-300 ease-in-out" 
+        <div
+          className="lg:hidden fixed inset-0 bg-black bg-opacity-50 z-50"
+          onClick={toggleMobileMenu}
+        >
+          <div
+            className="bg-white w-80 h-full shadow-lg overflow-y-auto transform transition-transform duration-300 ease-in-out"
             onClick={(e) => e.stopPropagation()}
-            style={{ transform: isMobileMenuOpen ? 'translateX(0)' : 'translateX(-100%)' }}
+            style={{
+              transform: isMobileMenuOpen
+                ? "translateX(0)"
+                : "translateX(-100%)",
+            }}
           >
             {/* Mobile Menu Header */}
             <div className="flex items-center justify-between p-4 border-b bg-[#f8f9fa]">
@@ -200,10 +222,12 @@ export const MainHeaderSection = (): JSX.Element => {
                 <div className="w-8 h-8 bg-[#f7ca11] rounded-full flex items-center justify-center mr-3">
                   <span className="text-[#3019b2] font-bold text-sm">e</span>
                 </div>
-                <span className="font-bold text-[#3019b2] text-lg">converse</span>
+                <span className="font-bold text-[#3019b2] text-lg">
+                  converse
+                </span>
               </div>
-              <button 
-                onClick={toggleMobileMenu} 
+              <button
+                onClick={toggleMobileMenu}
                 aria-label="Fechar menu"
                 className="hover:bg-gray-200 p-2 rounded-md transition-colors"
               >
@@ -215,10 +239,14 @@ export const MainHeaderSection = (): JSX.Element => {
             <div className="p-4">
               {/* User Actions */}
               <div className="space-y-2 mb-6">
-                <h3 className="font-semibold text-gray-800 mb-3 text-sm uppercase tracking-wide">Minha Conta</h3>
+                <h3 className="font-semibold text-gray-800 mb-3 text-sm uppercase tracking-wide">
+                  Minha Conta
+                </h3>
                 <button className="flex items-center gap-3 w-full p-3 hover:bg-gray-50 rounded-lg transition-colors">
                   <UserIcon className="w-5 h-5 text-gray-600" />
-                  <span className="text-gray-700 font-medium">Entrar / Cadastrar</span>
+                  <span className="text-gray-700 font-medium">
+                    Entrar / Cadastrar
+                  </span>
                 </button>
                 <button className="flex items-center gap-3 w-full p-3 hover:bg-gray-50 rounded-lg transition-colors">
                   <HeartIcon className="w-5 h-5 text-gray-600" />
@@ -228,7 +256,9 @@ export const MainHeaderSection = (): JSX.Element => {
                   <div className="w-5 h-5 border-2 border-gray-600 rounded-sm relative">
                     <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-2 h-1 bg-gray-600 rounded-sm"></div>
                   </div>
-                  <span className="text-gray-700 font-medium">Meus Pedidos</span>
+                  <span className="text-gray-700 font-medium">
+                    Meus Pedidos
+                  </span>
                 </button>
               </div>
 
@@ -236,17 +266,23 @@ export const MainHeaderSection = (): JSX.Element => {
 
               {/* Categories */}
               <div className="space-y-2">
-                <h3 className="font-semibold text-gray-800 mb-3 text-sm uppercase tracking-wide">Categorias</h3>
+                <h3 className="font-semibold text-gray-800 mb-3 text-sm uppercase tracking-wide">
+                  Categorias
+                </h3>
                 {categories.map((category, index) => (
                   <button
                     key={index}
                     className={`block w-full text-left p-3 hover:bg-gray-50 rounded-lg transition-colors
-                      ${category.active ? "text-[#3019b2] font-semibold bg-blue-50" : "text-gray-700"}`}
+                      ${
+                        category.active
+                          ? "text-[#3019b2] font-semibold bg-blue-50"
+                          : "text-gray-700"
+                      }`}
                   >
                     {category.name}
                   </button>
                 ))}
-                
+
                 <button className="flex items-center gap-3 w-full p-3 hover:bg-gray-50 rounded-lg transition-colors">
                   <CrownIcon className="w-5 h-5 text-[#f7ca11]" />
                   <span className="text-gray-700 font-medium">ASSINATURA</span>
@@ -257,9 +293,14 @@ export const MainHeaderSection = (): JSX.Element => {
 
               {/* Promotional Messages */}
               <div className="space-y-3">
-                <h3 className="font-semibold text-gray-800 mb-3 text-sm uppercase tracking-wide">Vantagens</h3>
+                <h3 className="font-semibold text-gray-800 mb-3 text-sm uppercase tracking-wide">
+                  Vantagens
+                </h3>
                 {promoMessages.map((promo, index) => (
-                  <div key={index} className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
+                  <div
+                    key={index}
+                    className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg"
+                  >
                     {promo.icon}
                     <div className="[font-family:'Poppins',Helvetica] font-normal text-xs">
                       {promo.text}
