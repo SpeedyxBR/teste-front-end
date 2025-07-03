@@ -138,6 +138,23 @@ export const ProductShowcaseSection = (): JSX.Element => {
 
           {/* Product Cards: Carrossel apenas no mobile, grid no desktop */}
           <div className="relative z-10">
+            {/* Navigation Buttons - soltas nas bordas, mas dentro do fluxo do container */}
+            <button
+              className="w-10 h-10 bg-white rounded-2xl shadow-[0px_4px_8px_#00000030] flex items-center justify-center pointer-events-auto hover:scale-110 transition-transform absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 z-20 border border-gray-200"
+              aria-label="Produto anterior"
+              type="button"
+              style={{ marginLeft: "-24px" }}
+            >
+              <ChevronLeft size={20} className="text-gray-600" />
+            </button>
+            <button
+              className="w-10 h-10 bg-white rounded-2xl shadow-[0px_4px_8px_#00000030] flex items-center justify-center pointer-events-auto hover:scale-110 transition-transform absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 z-20 border border-gray-200"
+              aria-label="Próximo produto"
+              type="button"
+              style={{ marginRight: "-24px" }}
+            >
+              <ChevronRight size={20} className="text-gray-600" />
+            </button>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-8 justify-items-center max-w-[1600px] mx-auto px-2">
               {products.slice(0, 4).map((product, index) => (
                 <div className="w-full max-w-[320px]">
