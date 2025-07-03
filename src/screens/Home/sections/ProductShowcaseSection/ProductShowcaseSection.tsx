@@ -1,7 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Tabs, TabsList, TabsTrigger } from "../../../../components/ui/tabs";
 import { ProductCard } from "../../../../components/ProductCard";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselPrevious,
+  CarouselNext,
+} from "../../../../components/ui/carousel";
 import { ProductModal } from "../../../../components/ProductModal";
 import { useProducts } from "../../../../hooks/useProducts";
 import { Product } from "../../../../types/Product";
@@ -14,6 +21,8 @@ export const ProductShowcaseSection = (): JSX.Element => {
     Array<{ product: Product; quantity: number }>
   >([]);
 
+  // Ref para controlar o carrossel
+  const carouselApiRef = useRef<any>(null);
   // Category tabs data
   const categories = [
     { id: "celular", label: "CELULAR", active: true },
@@ -85,13 +94,13 @@ export const ProductShowcaseSection = (): JSX.Element => {
   return (
     <>
       <section
-        className="w-full pt-0 pb-8 relative"
+        className="w-full py-8 relative"
         aria-label="Produtos em destaque"
       >
-        <div className="w-full max-w-[1280px] mx-auto px-0 sm:px-4">
+        <div className="w-full max-w-[1600px] mx-auto px-2 sm:px-8">
           {/* Section Header */}
-          <header className="flex flex-col items-center mb-1 w-full">
-            <div className="flex items-center justify-center w-full mb-0">
+          <header className="flex flex-col items-center mb-4 w-full">
+            <div className="flex items-center justify-center w-full mb-2">
               <div className="h-px bg-gray-300 hidden md:block flex-1" />
               <h2 className="mx-4 sm:mx-8 [font-family:'Poppins',Helvetica] font-bold text-[#3341b5] text-2xl sm:text-3xl text-center">
                 Produtos relacionados
@@ -124,36 +133,87 @@ export const ProductShowcaseSection = (): JSX.Element => {
               </TabsList>
             </Tabs>
           </div>
+          {/* Espaço entre as categorias e os cards */}
+          <div className="h-16 sm:h-20" />
 
-          {/* Product Cards Container */}
-feat(header): replace code-based econverse logo with econverse.png image in navbar          <div className="relative z-10 mt-20">
-            {/* Navigation Buttons */}
-            <div className="flex justify-between absolute top-1/2 -translate-y-1/2 w-full z-10 px-2 pointer-events-none hidden sm:flex">
-              <button
-                className="w-8 h-8 bg-white rounded-2xl shadow-[0px_4px_4px_#00000040] flex items-center justify-center pointer-events-auto hover:scale-110 transition-transform"
-                aria-label="Produto anterior"
-                type="button"
+          {/* Product Cards: Carrossel apenas no mobile, grid no desktop */}
+          <div className="relative z-10">
+            {/* Carrossel mobile */}
+            <div className="block md:hidden">
+              <Carousel
+                className="relative w-full max-w-[1600px] mx-auto"
+                setApi={(api) => (carouselApiRef.current = api)}
               >
-                <ChevronLeft size={16} className="text-gray-600" />
-              </button>
-              <button
-                className="w-8 h-8 bg-white rounded-2xl shadow-[0px_4px_4px_#00000040] flex items-center justify-center pointer-events-auto hover:scale-110 transition-transform"
-                aria-label="Próximo produto"
-                type="button"
-              >
-                <ChevronRight size={16} className="text-gray-600" />
-              </button>
+                {/* Custom Navigation Buttons - escondidas no mobile */}
+                <button
+                  className="w-8 h-8 bg-white rounded-2xl shadow-[0px_4px_4px_#00000040] flex items-center justify-center pointer-events-auto hover:scale-110 transition-transform absolute left-0 top-1/2 -translate-y-1/2 z-20 hidden"
+                  aria-label="Produto anterior"
+                  type="button"
+                  style={{ marginLeft: "-24px" }}
+                  onClick={() =>
+                    carouselApiRef.current &&
+                    carouselApiRef.current.scrollPrev()
+                  }
+                >
+                  <ChevronLeft size={16} className="text-gray-600" />
+                </button>
+                <button
+                  className="w-8 h-8 bg-white rounded-2xl shadow-[0px_4px_4px_#00000040] flex items-center justify-center pointer-events-auto hover:scale-110 transition-transform absolute right-0 top-1/2 -translate-y-1/2 z-20 hidden"
+                  aria-label="Próximo produto"
+                  type="button"
+                  style={{ marginRight: "-24px" }}
+                  onClick={() =>
+                    carouselApiRef.current &&
+                    carouselApiRef.current.scrollNext()
+                  }
+                >
+                  <ChevronRight size={16} className="text-gray-600" />
+                </button>
+                <CarouselContent>
+                  {products.slice(0, 4).map((product, index) => (
+                    <CarouselItem
+                      key={`${product.productName}-${index}`}
+                      className="flex justify-center px-8"
+                    >
+                      <ProductCard
+                        product={product}
+                        onClick={handleProductClick}
+                      />
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+              </Carousel>
             </div>
-
-            {/* Product Cards */}
-            <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-[18px] justify-items-center">
-              {products.slice(0, 4).map((product, index) => (
-                <ProductCard
-                  key={`${product.productName}-${index}`}
-                  product={product}
-                  onClick={handleProductClick}
-                />
-              ))}
+            {/* Grid desktop */}
+            <div className="relative hidden md:block">
+              {/* Setas simbólicas apenas para visual, sem ação */}
+              <div className="flex justify-between absolute top-1/2 -translate-y-1/2 w-full z-10 pointer-events-none">
+                <button
+                  className="w-8 h-8 bg-white rounded-2xl shadow-[0px_4px_4px_#00000040] flex items-center justify-center pointer-events-none opacity-60"
+                  aria-label="Produto anterior"
+                  type="button"
+                  tabIndex={-1}
+                >
+                  <ChevronLeft size={16} className="text-gray-600" />
+                </button>
+                <button
+                  className="w-8 h-8 bg-white rounded-2xl shadow-[0px_4px_4px_#00000040] flex items-center justify-center pointer-events-none opacity-60"
+                  aria-label="Próximo produto"
+                  type="button"
+                  tabIndex={-1}
+                >
+                  <ChevronRight size={16} className="text-gray-600" />
+                </button>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 justify-items-center max-w-[1600px] mx-auto">
+                {products.slice(0, 4).map((product, index) => (
+                  <ProductCard
+                    key={`${product.productName}-${index}`}
+                    product={product}
+                    onClick={handleProductClick}
+                  />
+                ))}
+              </div>
             </div>
           </div>
         </div>
