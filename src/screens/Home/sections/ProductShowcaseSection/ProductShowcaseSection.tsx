@@ -138,13 +138,15 @@ export const ProductShowcaseSection = (): JSX.Element => {
 
           {/* Product Cards: Carrossel apenas no mobile, grid no desktop */}
           <div className="relative z-10">
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 justify-items-center max-w-[1600px] mx-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-8 justify-items-center max-w-[1600px] mx-auto px-2">
               {products.slice(0, 4).map((product, index) => (
-                <ProductCard
-                  key={`${product.productName}-${index}`}
-                  product={product}
-                  onClick={handleProductClick}
-                />
+                <div className="w-full max-w-[320px]">
+                  <ProductCard
+                    key={`${product.productName}-${index}`}
+                    product={product}
+                    onClick={handleProductClick}
+                  />
+                </div>
               ))}
             </div>
           </div>

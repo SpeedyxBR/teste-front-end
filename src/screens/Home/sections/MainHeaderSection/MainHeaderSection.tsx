@@ -11,12 +11,13 @@ import {
   XIcon,
 } from "lucide-react";
 import React, { useState } from "react";
+import { useCart } from "../../../../contexts/CartContext";
 import { Input } from "../../../../components/ui/input";
 import { Separator } from "../../../../components/ui/separator";
 
 export const MainHeaderSection = (): JSX.Element => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [cartItemsCount, setCartItemsCount] = useState(3);
+  const { cartItems } = useCart();
 
   // Top bar promotional messages data
   const promoMessages = [
@@ -155,9 +156,11 @@ export const MainHeaderSection = (): JSX.Element => {
               aria-label="Carrinho de compras"
             >
               <ShoppingCartIcon className="w-5 h-5 md:w-6 md:h-6 text-gray-600" />
-              {cartItemsCount > 0 && (
+              {cartItems.length > 0 && (
                 <span className="absolute -top-1 -right-1 bg-[#f7ca11] text-[#3019b2] text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center min-w-[20px] text-[10px]">
-                  {cartItemsCount > 99 ? "99+" : cartItemsCount}
+                  {cartItems.reduce((acc, item) => acc + item.quantity, 0) > 99
+                    ? "99+"
+                    : cartItems.reduce((acc, item) => acc + item.quantity, 0)}
                 </span>
               )}
             </button>

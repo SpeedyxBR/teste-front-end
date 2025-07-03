@@ -106,13 +106,15 @@ export const ProductShowcaseWrapperSection = (): JSX.Element => {
           </div>
 
           {/* Product Cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 justify-items-center">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8 justify-items-center max-w-[1600px] mx-auto px-2">
             {products.slice(6, 10).map((product, index) => (
-              <ProductCard
-                key={`${product.productName}-${index}`}
-                product={product}
-                onClick={handleProductClick}
-              />
+              <div className="w-full max-w-[320px]">
+                <ProductCard
+                  key={`${product.productName}-${index}`}
+                  product={product}
+                  onClick={handleProductClick}
+                />
+              </div>
             ))}
           </div>
         </div>
