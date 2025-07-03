@@ -11,7 +11,6 @@ import { SupportBannerSection } from "./sections/SupportBannerSection";
 import { SupportBannerWrapperSection } from "./sections/SupportBannerWrapperSection";
 
 export const Home = (): JSX.Element => {
-  // Brand data for the brand navigation section
   const brandLogos = Array(5).fill({
     logoImages: [
       {
@@ -94,14 +93,12 @@ export const Home = (): JSX.Element => {
     ],
   });
 
-  // Category data
   const categories = [
     { name: "Mercados", className: "absolute top-[722px] left-[1495px]" },
     { name: "Padarias", className: "absolute top-[722px] left-[1698px]" },
     { name: "Oriental", className: "absolute top-[722px] left-[1899px]" },
   ];
 
-  // Product images
   const productImages = [
     {
       src: "/image-67.png",
@@ -130,7 +127,6 @@ export const Home = (): JSX.Element => {
         <section className="relative w-full">
           <MainHeaderSection />
 
-          {/* Spacer for fixed header */}
           <div className="h-[100px] md:h-[124px] lg:h-[152px]"></div>
 
           <div className="relative w-full">
@@ -190,24 +186,16 @@ export const Home = (): JSX.Element => {
                   key={`brand-${index}`}
                   className="flex-shrink-0 w-[150px] h-[150px] md:w-[180px] md:h-[180px] lg:w-[211px] lg:h-[211px] bg-white rounded-[75px] md:rounded-[90px] lg:rounded-[105.5px] shadow-[0px_7px_20px_#00000021] flex items-center justify-center hover:shadow-[0px_10px_30px_#00000030] transition-shadow cursor-pointer"
                 >
-                  <div className="relative w-[80px] md:w-[100px] lg:w-[117px] h-[24px] md:h-[30px] lg:h-[34.76px]">
-                    <div className="h-[24px] md:h-[30px] lg:h-[35px]">
-                      <div className="relative w-[80px] md:w-[100px] lg:w-[117px] h-[24px] md:h-[30px] lg:h-[35px]">
-                        <div className="bg-[#f7ca11] rounded-full w-6 h-6 md:w-7 md:h-7 lg:w-8 lg:h-8 flex items-center justify-center">
-                          <span className="text-[#3019b2] font-bold text-xs md:text-sm lg:text-base">
-                            e
-                          </span>
-                        </div>
-                        <span className="absolute left-7 md:left-8 lg:left-10 top-1/2 -translate-y-1/2 font-bold text-[#3019b2] text-xs md:text-sm lg:text-base">
-                          converse
-                        </span>
-                      </div>
-                    </div>
-                  </div>
+                  <img
+                    src="/econverse.png"
+                    alt="Econverse logo"
+                    className="w-[100px] md:w-[120px] lg:w-[140px] h-auto object-contain"
+                  />
                 </Card>
               ))}
             </div>
           </div>
+
           <style jsx>{`
             .scrollbar-hide {
               -ms-overflow-style: none;
