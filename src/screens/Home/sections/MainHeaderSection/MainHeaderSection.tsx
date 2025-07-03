@@ -222,12 +222,12 @@ export const MainHeaderSection = (): JSX.Element => {
             {/* Mobile Menu Header */}
             <div className="flex items-center justify-between p-4 border-b bg-[#f8f9fa]">
               <div className="flex items-center">
-                <div className="w-8 h-8 bg-[#f7ca11] rounded-full flex items-center justify-center mr-3">
-                  <span className="text-[#3019b2] font-bold text-sm">e</span>
-                </div>
-                <span className="font-bold text-[#3019b2] text-lg">
-                  converse
-                </span>
+                <img
+                  src="/econverse.png"
+                  alt="Econverse logo"
+                  className="w-28 h-auto object-contain mr-2"
+                  style={{ maxHeight: 32 }}
+                />
               </div>
               <button
                 onClick={toggleMobileMenu}
