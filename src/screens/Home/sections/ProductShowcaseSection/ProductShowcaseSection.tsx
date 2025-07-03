@@ -85,13 +85,13 @@ export const ProductShowcaseSection = (): JSX.Element => {
   return (
     <>
       <section
-        className="w-full py-8 relative"
+        className="w-full pt-0 pb-8 relative"
         aria-label="Produtos em destaque"
       >
-        <div className="w-full max-w-[1280px] mx-auto px-2 sm:px-4">
+        <div className="w-full max-w-[1280px] mx-auto px-0 sm:px-4">
           {/* Section Header */}
-          <header className="flex flex-col items-center mb-4 w-full">
-            <div className="flex items-center justify-center w-full mb-2">
+          <header className="flex flex-col items-center mb-1 w-full">
+            <div className="flex items-center justify-center w-full mb-0">
               <div className="h-px bg-gray-300 hidden md:block flex-1" />
               <h2 className="mx-4 sm:mx-8 [font-family:'Poppins',Helvetica] font-bold text-[#3341b5] text-2xl sm:text-3xl text-center">
                 Produtos relacionados
@@ -126,7 +126,7 @@ export const ProductShowcaseSection = (): JSX.Element => {
           </div>
 
           {/* Product Cards Container */}
-          <div className="relative z-10">
+          <div className="relative z-10 mt-20">
             {/* Navigation Buttons */}
             <div className="flex justify-between absolute top-1/2 -translate-y-1/2 w-full z-10 px-2 pointer-events-none hidden sm:flex">
               <button
