@@ -10,7 +10,9 @@ export const BrandNavigationSection = (): JSX.Element => {
   const { products, loading, error } = useProducts();
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [cartItems, setCartItems] = useState<Array<{ product: Product; quantity: number }>>([]);
+  const [cartItems, setCartItems] = useState<
+    Array<{ product: Product; quantity: number }>
+  >([]);
 
   const handleProductClick = (product: Product) => {
     setSelectedProduct(product);
@@ -23,10 +25,12 @@ export const BrandNavigationSection = (): JSX.Element => {
   };
 
   const handleAddToCart = (product: Product, quantity: number) => {
-    setCartItems(prev => {
-      const existingItem = prev.find(item => item.product.productName === product.productName);
+    setCartItems((prev) => {
+      const existingItem = prev.find(
+        (item) => item.product.productName === product.productName
+      );
       if (existingItem) {
-        return prev.map(item =>
+        return prev.map((item) =>
           item.product.productName === product.productName
             ? { ...item, quantity: item.quantity + quantity }
             : item
@@ -38,7 +42,10 @@ export const BrandNavigationSection = (): JSX.Element => {
 
   if (loading) {
     return (
-      <section className="w-full max-w-[1364px] mx-auto py-8" aria-label="Produtos relacionados">
+      <section
+        className="w-full max-w-[1364px] mx-auto py-8"
+        aria-label="Produtos relacionados"
+      >
         <div className="flex justify-center items-center h-64">
           <div className="text-lg text-gray-500">Carregando produtos...</div>
         </div>
@@ -48,9 +55,14 @@ export const BrandNavigationSection = (): JSX.Element => {
 
   if (error) {
     return (
-      <section className="w-full max-w-[1364px] mx-auto py-8" aria-label="Produtos relacionados">
+      <section
+        className="w-full max-w-[1364px] mx-auto py-8"
+        aria-label="Produtos relacionados"
+      >
         <div className="flex justify-center items-center h-64">
-          <div className="text-lg text-red-500">Erro ao carregar produtos: {error}</div>
+          <div className="text-lg text-red-500">
+            Erro ao carregar produtos: {error}
+          </div>
         </div>
       </section>
     );
@@ -58,11 +70,14 @@ export const BrandNavigationSection = (): JSX.Element => {
 
   return (
     <>
-      <section className="w-full max-w-[1364px] mx-auto py-8 px-4" aria-label="Produtos relacionados">
-        <header className="flex flex-col items-center mb-6">
+      <section
+        className="w-full max-w-[1364px] mx-auto py-8 px-2 sm:px-4"
+        aria-label="Produtos relacionados"
+      >
+        <header className="flex flex-col items-center mb-6 w-full">
           <div className="flex items-center w-full max-w-[1140px] mb-4">
             <div className="flex-1 h-px bg-gray-300 hidden md:block" />
-            <h2 className="mx-8 [font-family:'Poppins',Helvetica] font-bold text-azul text-3xl">
+            <h2 className="mx-4 md:mx-8 font-bold text-azul text-2xl sm:text-3xl md:text-4xl text-center [font-family:'Poppins',Helvetica] w-full">
               Produtos relacionados
             </h2>
             <div className="flex-1 h-px bg-gray-300 hidden md:block" />
@@ -75,14 +90,14 @@ export const BrandNavigationSection = (): JSX.Element => {
         <div className="relative">
           {/* Navigation Buttons */}
           <div className="flex justify-between absolute top-1/2 -translate-y-1/2 w-full z-10 pointer-events-none">
-            <button 
+            <button
               className="w-8 h-8 bg-white rounded-2xl shadow-[0px_4px_4px_#00000040] flex items-center justify-center pointer-events-auto hover:scale-110 transition-transform"
               aria-label="Produto anterior"
               type="button"
             >
               <ChevronLeft size={16} className="text-gray-600" />
             </button>
-            <button 
+            <button
               className="w-8 h-8 bg-white rounded-2xl shadow-[0px_4px_4px_#00000040] flex items-center justify-center pointer-events-auto hover:scale-110 transition-transform"
               aria-label="Próximo produto"
               type="button"
