@@ -96,16 +96,12 @@ export const MainHeaderSection = (): JSX.Element => {
 
           {/* Logo */}
           <div className="flex items-center">
-            <div className="relative">
-              {/* Círculo amarelo */}
-              <div className="w-[35px] h-[35px] md:w-[41px] md:h-[41px] bg-[#f7ca11] rounded-full flex items-center justify-center">
-                <span className="text-[#3019b2] font-bold text-base md:text-lg">e</span>
-              </div>
-              {/* Texto econverse */}
-              <span className="absolute left-[45px] md:left-[50px] top-1/2 -translate-y-1/2 font-bold text-[#3019b2] text-base md:text-lg whitespace-nowrap">
-                converse
-              </span>
-            </div>
+            <img
+              src="/econverse.png"
+              alt="Econverse logo"
+              className="h-[35px] md:h-[41px] w-auto object-contain"
+              style={{ maxWidth: '160px' }}
+            />
           </div>
 
           {/* Search bar - Hidden on mobile */}
